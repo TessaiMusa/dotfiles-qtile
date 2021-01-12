@@ -68,3 +68,4 @@ echo "Installation done, copying config files"
 ln -sv $current/config/qtile/ ~/.config
 ln -sv $current/config/eww ~/.config
 ln -sv $current/config/polybar ~/.config
+ln -sv $current/config/picom ~/.config
