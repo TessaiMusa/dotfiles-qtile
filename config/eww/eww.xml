@@ -11,6 +11,9 @@
 						<button onclick="playerctl play-pause">{{music-playpause}}</button>
 						<button onclick="playerctl next"></button>
 					</box>
+					<box orientation="h" class="musicvolume" space-evenly="false">
+							<scale min="0" max="100" value="{{music-volume}}" onchange="pactl set-sink-volume 0 {}%" />
+					</box>
 				</box>
 			</box>
 		</def>
@@ -22,7 +25,9 @@
 
 		<script-var name="music-title" interval="5s">playerctl metadata --format '{{title}}' </script-var>
 		<script-var name="music-artist" interval="5s">playerctl metadata --format '{{artist}}' </script-var>
-		<script-var name="music-plaupause" interval="1s"> </script-var>
+		<script-var name="music-playpause"> ~/.config/eww/scripts/playpause.fish </script-var>
+
+		<script-var name="music-volume">~/.config/eww/scripts/getvolume.fish</script-var>
 	</variables>
 	
 	<windows>

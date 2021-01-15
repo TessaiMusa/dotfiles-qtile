@@ -9,3 +9,24 @@
   margin: 15px;
   background-size: cover;
 }
+
+.musicvolume scale trough {
+	all: unset;
+	background-color: #4e4e4e;
+	border-radius: 50px;
+	min-height: 5px;
+  min-width: 240px;
+  margin-bottom: 20px;
+}
+
+.musicvolume scale trough highlight {
+	all: unset;
+	background-color: #ffd5cd;
+	color: #000000;
+	border-radius: 10px;
+}
+
+.musicvolume slider {
+  all: unset;
+  color: #ffd5cd;
+}
