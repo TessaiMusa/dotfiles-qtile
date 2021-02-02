@@ -24,7 +24,7 @@ color-2 = #100D1f
 color-3 = #4f3440
 color-4 = #fbf2db
 
-fonts-0 = "Free Mono:size=10;2"
+fonts-0 = "DejaVu Sans Mono:style=Bold:size=10;2"
 fonts-1 = "Font Awesome 5 Free Solid:size=10;2"
 fonts-2 = "Font Awesome 5 Brands Regular:size=10;2"
 
@@ -50,10 +50,10 @@ modules-left = ewmh
 [bar/bar-2]
 override-redirect = true
 
-width = 9%
+width = 8.6%
 height = 27px
 
-offset-x = 90.5%
+offset-x = 91%
 offset-y = 10
 
 fixed-center = true
@@ -64,7 +64,45 @@ foreground = ${meta.color-1}
 font-0 = ${meta.fonts-0}
 font-1 = ${meta.fonts-1}
 
-modules-left = wifi date
+modules-right = wifi date
+
+[bar/bar-3]
+override-redirect = true
+
+width = 10%
+height = 27px
+
+offset-x = 10%
+offset-y = 10
+
+fixed-center = true
+
+background = ${meta.color-2}
+foreground = ${meta.color-1}
+
+font-0 = ${meta.fonts-0}
+font-1 = ${meta.fonts-1}
+
+modules-left = battery
+
+[module/battery]
+type = internal/battery
+
+full-at = 100
+battery = BAT1
+adapter = ACAD
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <label-full>
+
+label-charging = %percentage%%
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+
+
 
 [module/date]
 type = internal/date
@@ -80,11 +118,11 @@ time = %H:%M
 
 [module/wifi]
 type = internal/network
-interface = wlo1
+interface = wlan0
 
 interval = 3.0
 
-label-connected =  %essid:0:6:...%
+label-connected =  %essid:0:6:..%
 label-connected-padding = 1
 label-connected-background = ${meta.color-1}
 label-connected-foreground = ${meta.color-3}
