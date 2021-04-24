@@ -47,6 +47,12 @@ call plug#end()
 " ================
 colorscheme codedark
 
+highlight Normal guibg = #0
+highlight LineNr guibg = #0
+highlight CursorLineNr guibg = #0
+highlight Directory guibg =  #0
+highlight EndOfBuffer guibg = #0
+
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
@@ -54,10 +60,9 @@ let g:NERDTreePatternMatchHighlightFullName = 1
 " NERDTree toggle
 nnoremap <c-t> :NERDTreeToggle<CR>
 
-" Start NERDTree when Vim starts with a directory argument.
+" Start NERDTree, unless a file or session is specified, eg. vim -S session_file.vim.
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
